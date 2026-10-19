@@ -4,6 +4,14 @@ An exploratory Python framework for studying the trade-off between threshold-est
 
 The research question is: **how do response reliability, prior assumptions, and stopping criteria change the amount of information obtained from an adaptive visual-sensitivity test?**
 
+## Personal motivation
+
+I lost vision in my right eye following an accident and have undergone regular visual-field testing since then. Experiencing these tests as a patient made me curious about whether adaptive statistical methods could make the process more efficient and less tiring while preserving reliable information.
+
+That experience inspired this project: exploring how data science and sequential testing might help improve the testing experience. The current work is an exploratory simulation framework and reading list.
+
+## Current scope
+
 This repository contains an offline, single-location simulation. It does not present stimuli to people, operate a perimeter, or implement SITA. Presentation counts are a measurement-burden proxy; they are not measured test duration or patient comfort. No benchmark results or clinical performance claims are included.
 
 ## Run an experiment
