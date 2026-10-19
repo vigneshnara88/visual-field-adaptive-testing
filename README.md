@@ -10,6 +10,27 @@ I lost vision in my right eye following an accident and have undergone regular v
 
 That experience inspired this project: exploring how data science and sequential testing might help improve the testing experience. The current work is an exploratory simulation framework and reading list.
 
+## The question in plain language
+
+The simulation asks how much can be learned from a sequence of simple “seen” or “not seen” responses. A synthetic observer has an underlying sensitivity, but the procedure cannot read it directly. Instead it chooses a stimulus, receives a noisy binary response, and decides what to present next. The task is to estimate sensitivity using an informative sequence of questions.
+
+The tension is between information and burden. Repeating similar presentations may make an estimate more stable but increases the number of responses required. Stopping early saves presentations but can leave substantial uncertainty. Occasional missed responses or false positives make this a statistical problem rather than a deterministic search for one exact boundary.
+
+## Why compare staircase and Bayesian procedures?
+
+A staircase reacts directly to the last response: make the next presentation harder after “seen” and easier after “not seen.” Changes of direction help define its estimate. A Bayesian procedure instead maintains a distribution over possible sensitivities, updates that distribution after every response, and can stop when its modelled uncertainty becomes small enough.
+
+These are two ways of deciding which question to ask next. The comparison is useful because a procedure that looks efficient under its own assumptions can behave differently when responses are less reliable or its prior is poorly matched to the observer. The code exposes those choices so efficiency can be studied alongside error and uncertainty.
+
+## From a question to a simulated experiment
+
+1. Specify a synthetic observer's sensitivity and response-error behaviour.
+2. Give both procedures the same observer setting and a matched source of random responses.
+3. Let each procedure select its own presentations under the chosen stopping rule or common presentation budget.
+4. Record estimated sensitivity, error and presentation count, then summarise performance over repeated synthetic trials.
+
+The saved settings and optional presentation histories make the sequence of decisions inspectable. The broader motivation includes test experience and workflow, while this implementation isolates the algorithmic question at one location.
+
 ## Current scope
 
 This repository contains an offline, single-location simulation. It does not present stimuli to people, operate a perimeter, or implement SITA. Presentation counts are a measurement-burden proxy; they are not measured test duration or patient comfort. No benchmark results or clinical performance claims are included.
