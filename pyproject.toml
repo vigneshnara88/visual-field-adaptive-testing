@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visual-field-adaptive-testing"
+version = "0.1.0"
+description = "Offline synthetic-observer experiments in adaptive visual sensitivity estimation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+visual-field-sim = "visual_field.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["visual_field*"]

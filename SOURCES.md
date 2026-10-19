@@ -1,0 +1,15 @@
+# Literature and implementation scope
+
+This is a focused reading list for an exploratory offline simulation, not a systematic review. None of the publications below validates this code. The implementation's equations and procedure choices are documented in the README; the sources provide research context.
+
+| Source | Connection to this repository | Boundary |
+| --- | --- | --- |
+| Heijl et al. (2019), [A New SITA Perimetric Threshold Testing Algorithm](https://pubmed.ncbi.nlm.nih.gov/30336129/) | Established work on reducing perimetric testing time motivates studying the accuracy/presentation trade-off. | The simulator does not implement SITA and does not inherit its clinical findings. |
+| Muthusamy et al. (2020), [An Evaluation of ARREST](https://pmc.ncbi.nlm.nih.gov/articles/PMC7745600/) | Motivates allocation of measurements to informative parts of the field. | This code estimates one location at a time and does not implement adaptive spatial sampling. |
+| [Evaluating the Performance of qVFM in Mapping the Visual Field of Simulated Observers With Eye Diseases](https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2021.596616/full) (2021) | Provides context for Bayesian sequential design and explicit synthetic-observer evaluation. | This code has no global field model and does not reproduce qVFM. |
+| Turpin, Artes and McKendrick (2012); Marin-Franch et al. (2022), [Open Perimetry Initiative](https://opi.lei.org.au/) | Research software infrastructure to investigate if future work requires instrument interfaces. | No OPI integration, hardware access, or calibrated display is included here. |
+| Heinzman et al. (2023), [Validation of the Iowa Head-Mounted Open-Source Perimeter](https://pmc.ncbi.nlm.nih.gov/articles/PMC10528495/) | Demonstrates that an open testing system requires device-specific validation and agreement studies. | A generic Bayesian simulator is not the Iowa device, its ZEST implementation, or its validation study. |
+| Lu, Girgis, Shah and Lee (2024), [Patient Experience and Barriers to the Visual Field Test for Glaucoma](https://pubmed.ncbi.nlm.nih.gov/39083020/) | Motivates considering concentration, anxiety, and discomfort alongside measurement accuracy. | Presentation count alone cannot measure these outcomes or demonstrate an improvement in patient experience. |
+| [Perimetry of the Central Visual Field Using a Head-Mounted Open-Source Perimeter in Patients with Inherited Retinal Diseases](https://www.mdpi.com/2411-5150/10/1/12) (2026) | Illustrates why population, stimulus range, and device limitations matter when interpreting a test. | No transfer of clinical findings to this simulation or to consumer displays is assumed. |
+
+The model deliberately exposes response errors and inference assumptions so future experiments can examine where a procedure fails. Comparisons should report both estimation error and presentation counts, show the chosen stopping criteria, and distinguish matched from misspecified observer models.
